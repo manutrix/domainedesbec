@@ -1,0 +1,462 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-21 15:15+0700\n"
+"PO-Revision-Date: 2016-03-21 15:15+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop;_e;_n\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../grandrestaurant-custom-post.php:27
+msgid "Add New Gallery"
+msgstr "Add New Gallery"
+
+#: ../grandrestaurant-custom-post.php:28
+msgid "Edit Gallery"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:29
+msgid "New Gallery"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:30
+msgid "View Gallery"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:31
+msgid "Search Gallery"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:32
+msgid "No Gallery found"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:33
+msgid "No Gallery found in Trash"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:55
+msgid "Search Gallery Categories"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:56
+msgid "All Gallery Categories"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:57
+msgid "Parent Gallery Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:58
+msgid "Parent Gallery Category:"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:59
+msgid "Edit Gallery Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:60
+msgid "Update Gallery Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:61
+msgid "Add New Gallery Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:62
+msgid "New Gallery Category Name"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:74
+#, fuzzy
+msgid "Add New Menu"
+msgstr "Add New Gallery"
+
+#: ../grandrestaurant-custom-post.php:75
+msgid "Edit Menu"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:76
+msgid "New Menu"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:77
+msgid "View Menu"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:78
+msgid "Search Menus"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:79
+msgid "No Menu found"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:80
+msgid "No Menu found in Trash"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:102
+msgid "Search Menu Categories"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:103
+msgid "All Menu Categories"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:104
+msgid "Parent Menu Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:105
+msgid "Parent Menu Category:"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:106
+msgid "Edit Menu Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:107
+msgid "Update Menu Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:108
+#, fuzzy
+msgid "Add New Menu Category"
+msgstr "Add New Gallery"
+
+#: ../grandrestaurant-custom-post.php:109
+msgid "New Menu Category Name"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:134
+msgid "Add New Testimonial"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:135
+msgid "Edit Testimonial"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:136
+msgid "New Testimonial"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:137
+msgid "View Testimonial"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:138
+msgid "Search Testimonial"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:139
+msgid "No Testimonial found"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:140
+msgid "No Testimonial found in Trash"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:162
+msgid "Search Testimonial Categories"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:163
+msgid "All Testimonial Categories"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:164
+msgid "Parent Testimonial Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:165
+msgid "Parent Testimonial Category:"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:166
+msgid "Edit Testimonial Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:167
+msgid "Update Testimonial Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:168
+msgid "Add New Testimonial Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:169
+msgid "New Testimonial Category Name"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:194
+msgid "Add New Team Member"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:195
+msgid "Edit Team Member"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:196
+msgid "New Team Member"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:197
+msgid "View Team Member"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:198
+msgid "Search Team Members"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:199
+msgid "No Team Member found"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:200
+msgid "No Team Member found in Trash"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:222
+msgid "Team Service Categories"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:223
+msgid "All Team Categories"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:224
+msgid "Parent Team Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:225
+msgid "Parent Team Category:"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:226
+msgid "Edit Team Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:227
+msgid "Update Team Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:228
+msgid "Add New Team Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:229
+msgid "New Team Category Name"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:253
+msgid "Add New Pricing"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:254
+msgid "Edit Pricing"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:255
+msgid "New Pricing"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:256
+msgid "View Pricing"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:257
+msgid "Search Pricings"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:258
+msgid "No Pricing found"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:259
+msgid "No Pricing found in Trash"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:281
+msgid "Pricing Service Categories"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:282
+msgid "All Pricing Categories"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:283
+msgid "Parent Pricing Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:284
+msgid "Parent Pricing Category:"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:285
+msgid "Edit Pricing Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:286
+msgid "Update Pricing Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:287
+msgid "Add New Pricing Category"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:288
+msgid "New Pricing Category Name"
+msgstr ""
+
+#: ../grandrestaurant-custom-post.php:309
+msgid "Thumbnail"
+msgstr ""
+
+#: ../tg-contentbuilder.php:574
+msgid "person"
+msgstr ""
+
+#: ../tg-contentbuilder.php:578 ../tg-contentbuilder.php:582
+msgid "people"
+msgstr ""
+
+#: ../tg-contentbuilder.php:590
+msgid "Find a table"
+msgstr ""
+
+#: ../tg-contentbuilder.php:3385 ../tg-contentbuilder.php:3413
+#: ../tg-contentbuilder.php:3440
+msgid "In"
+msgstr ""
+
+#: ../tg-contentbuilder.php:3450
+msgid "Read More"
+msgstr ""
+
+#: ../tg-contentbuilder.php:5102 ../tg-contentbuilder.php:5103
+#: ../tg-contentbuilder.php:5351 ../tg-contentbuilder.php:5352
+#: ../tg-contentbuilder.php:5588 ../tg-contentbuilder.php:5589
+#: ../tg-contentbuilder.php:5747 ../tg-contentbuilder.php:5748
+msgid "Name *"
+msgstr ""
+
+#: ../tg-contentbuilder.php:5110 ../tg-contentbuilder.php:5111
+#: ../tg-contentbuilder.php:5359 ../tg-contentbuilder.php:5360
+#: ../tg-contentbuilder.php:5596 ../tg-contentbuilder.php:5597
+#: ../tg-contentbuilder.php:5755 ../tg-contentbuilder.php:5756
+msgid "Email *"
+msgstr ""
+
+#: ../tg-contentbuilder.php:5118 ../tg-contentbuilder.php:5119
+#: ../tg-contentbuilder.php:5367 ../tg-contentbuilder.php:5368
+#: ../tg-contentbuilder.php:5604 ../tg-contentbuilder.php:5605
+#: ../tg-contentbuilder.php:5763 ../tg-contentbuilder.php:5764
+msgid "Message *"
+msgstr ""
+
+#: ../tg-contentbuilder.php:5126 ../tg-contentbuilder.php:5127
+#: ../tg-contentbuilder.php:5375 ../tg-contentbuilder.php:5376
+#: ../tg-contentbuilder.php:5612 ../tg-contentbuilder.php:5613
+#: ../tg-contentbuilder.php:5771 ../tg-contentbuilder.php:5772
+msgid "Address"
+msgstr ""
+
+#: ../tg-contentbuilder.php:5134 ../tg-contentbuilder.php:5135
+#: ../tg-contentbuilder.php:5383 ../tg-contentbuilder.php:5384
+#: ../tg-contentbuilder.php:5620 ../tg-contentbuilder.php:5621
+#: ../tg-contentbuilder.php:5779 ../tg-contentbuilder.php:5780
+msgid "Phone"
+msgstr ""
+
+#: ../tg-contentbuilder.php:5142 ../tg-contentbuilder.php:5143
+#: ../tg-contentbuilder.php:5391 ../tg-contentbuilder.php:5392
+#: ../tg-contentbuilder.php:5628 ../tg-contentbuilder.php:5629
+#: ../tg-contentbuilder.php:5787 ../tg-contentbuilder.php:5788
+msgid "Mobile"
+msgstr ""
+
+#: ../tg-contentbuilder.php:5150 ../tg-contentbuilder.php:5151
+#: ../tg-contentbuilder.php:5399 ../tg-contentbuilder.php:5400
+#: ../tg-contentbuilder.php:5636 ../tg-contentbuilder.php:5637
+#: ../tg-contentbuilder.php:5795 ../tg-contentbuilder.php:5796
+msgid "Company Name"
+msgstr ""
+
+#: ../tg-contentbuilder.php:5158 ../tg-contentbuilder.php:5159
+#: ../tg-contentbuilder.php:5407 ../tg-contentbuilder.php:5408
+#: ../tg-contentbuilder.php:5644 ../tg-contentbuilder.php:5645
+#: ../tg-contentbuilder.php:5803 ../tg-contentbuilder.php:5804
+msgid "Country"
+msgstr ""
+
+#: ../tg-contentbuilder.php:5188 ../tg-contentbuilder.php:5437
+#: ../tg-contentbuilder.php:5674 ../tg-contentbuilder.php:5833
+msgid "Send"
+msgstr ""
+
+#: ../tg-shortcode.php:275
+msgid "Share On"
+msgstr ""
+
+#: ../tg-shortcode.php:769 ../tg-shortcode.php:886 ../tg-shortcode.php:2828
+msgid ""
+"Empty gallery item. Please make sure you have upload image to it or check "
+"the short code."
+msgstr ""
+
+#: ../tg-shortcode.php:1263 ../tg-shortcode.php:1540
+msgid ""
+"Empty portfolio item. Please make sure you have created portfolio item or "
+"check the short code."
+msgstr ""
+
+#: ../tg-shortcode.php:1329
+msgid "All"
+msgstr ""
+
+#: ../tg-shortcode.php:2105
+msgid "Go to top"
+msgstr ""
+
+#: ../tg-shortcode.php:2221
+msgid "Follow"
+msgstr ""
+
+#: ../gallery/tg-gallery.php:58
+msgid "Gallery Images"
+msgstr ""
+
+#: ../gallery/tg-gallery.php:100
+msgid "Allowed Files"
+msgstr ""
+
+#: ../gallery/tg-gallery.php:123
+msgid "Upload Image"
+msgstr ""
+
+#: ../gallery/tg-gallery.php:124
+msgid "Delete All Images"
+msgstr ""
+
+#: ../gallery/tg-gallery.php:131
+msgid "Remove"
+msgstr "Remove"
+
+#, fuzzy
+#~ msgid "Leave A Reply"
+#~ msgstr "Leave a Reply"
+
+#, fuzzy
+#~ msgid "Cancel"
+#~ msgstr "Leave a Reply"
+
+#, fuzzy
+#~ msgid "Cancel Reply"
+#~ msgstr "Leave a Reply"

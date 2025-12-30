@@ -1,0 +1,85 @@
+services:
+  nginx:
+    build:
+      context: ./docker/nginx
+    depends_on:
+      - app
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+      NGINX_SERVER_NAME: ${NGINX_SERVER_NAME:?set NGINX_SERVER_NAME in .env}
+      LE_CERT_NAME: ${LE_CERT_NAME:?set LE_CERT_NAME in .env}
+    volumes:
+      - ./wordpress:/var/www/html:ro
+      - letsencrypt:/etc/letsencrypt
+      - certbot_www:/var/www/certbot
+
+  app:
+    build:
+      context: ./docker/app
+      args:
+        PHP_VERSION: ${PHP_VERSION:-8.2}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+    environment:
+      WORDPRESS_DB_NAME: dev_domainedesbec
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-wp}
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_HOME: https://${DOMAIN:-localhost}
+      WORDPRESS_SITEURL: https://${DOMAIN:-localhost}
+    volumes:
+      - ./wordpress:/var/www/html
+
+  certbot:
+    image: certbot/certbot:latest
+    depends_on:
+      - nginx
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+      LE_EMAIL: ${LE_EMAIL:?set LE_EMAIL in .env}
+      LE_DOMAINS: ${LE_DOMAINS:-}
+      LE_STAGING: ${LE_STAGING:-0}
+      LE_CERT_NAME: ${LE_CERT_NAME:?set LE_CERT_NAME in .env}
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+      - certbot_www:/var/www/certbot
+      - ./docker/certbot/entrypoint.sh:/entrypoint.sh:ro
+    entrypoint: ["/bin/sh", "/entrypoint.sh"]
+
+  mysql:
+    image: mariadb:10.6
+    restart: unless-stopped
+    command:
+      - --sql-mode=
+      - --innodb-strict-mode=OFF
+      - --max_allowed_packet=512M
+      - --net_read_timeout=600
+      - --net_write_timeout=600
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 -uroot -p$$MARIADB_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-root}
+      MARIADB_DATABASE: dev_domainedesbec
+      MARIADB_USER: wp
+      MARIADB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-wp}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./sql_backup.sql:/backup/sql_backup.sql:ro
+      - ./docker/mysql/import-dev-db.sh:/docker-entrypoint-initdb.d/00-import-dev-db.sh:ro
+
+volumes:
+  db_data:
+  letsencrypt:
+  certbot_www:

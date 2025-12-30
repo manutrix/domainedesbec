@@ -1,0 +1,1579 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Rental manager\n",
+    "version" : "1.0.0",
+    "title" : "Rental Management",
+    "termsOfService" : "http://rrm.com/terms/",
+    "contact" : {
+      "email" : "p@manutrix.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/manutrix/bec_management/1.0.0",
+  "tags" : [ {
+    "name" : "all",
+    "description" : "Everithing",
+    "externalDocs" : {
+      "description" : "Find out more",
+      "url" : "http://rrm.com"
+    }
+  }, {
+    "name" : "booking",
+    "description" : "Everything about your Bookings",
+    "externalDocs" : {
+      "description" : "Find out more",
+      "url" : "http://rrm.com"
+    }
+  }, {
+    "name" : "guest",
+    "description" : "Everything about your Guests"
+  }, {
+    "name" : "cleanings",
+    "description" : "Everything about your Cleanings",
+    "externalDocs" : {
+      "description" : "Find out more",
+      "url" : "http://rrm.com"
+    }
+  }, {
+    "name" : "apartment",
+    "description" : "Everything about your Apartment",
+    "externalDocs" : {
+      "description" : "Find out more",
+      "url" : "http://rrm.com"
+    }
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/apartments" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get a list of apartment",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getApartments",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "q",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-exportParamName" : "Q",
+          "x-optionalDataType" : "String"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-exportParamName" : "Sort",
+          "x-optionalDataType" : "String"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Specifies how many elements to skip before returning results.",
+          "required" : false,
+          "type" : "integer",
+          "minimum" : 0,
+          "format" : "int32",
+          "x-exportParamName" : "Offset",
+          "x-optionalDataType" : "Int32"
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Specifies the maximum amount of elements to return.  Returns 25 items by default.",
+          "required" : false,
+          "type" : "integer",
+          "maximum" : 100,
+          "minimum" : 1,
+          "format" : "int32",
+          "x-exportParamName" : "Limit",
+          "x-optionalDataType" : "Int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Apartment"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "all" ],
+        "summary" : "Add a new apartment",
+        "description" : "<b>By</b>\n",
+        "operationId" : "createApartment",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "apartment",
+          "description" : "Apartment object that needs to be added to the store",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Apartment"
+          },
+          "x-exportParamName" : "Apartment"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/Apartment"
+            }
+          }
+        }
+      }
+    },
+    "/apartments/{apartment_id}" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get an existing apartments",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getApartment",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Apartment"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "all" ],
+        "summary" : "Update an existing apartment",
+        "operationId" : "updateApartment",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "in" : "body",
+          "name" : "Apartment",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Apartment"
+          },
+          "x-exportParamName" : "Apartment"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "all" ],
+        "summary" : "Deletes a apartment",
+        "operationId" : "deleteApartment",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/apartments/{apartment_id}/rooms" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get rooms of an apartments",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getRooms",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "name" : "q",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-exportParamName" : "Q",
+          "x-optionalDataType" : "String"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-exportParamName" : "Sort",
+          "x-optionalDataType" : "String"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Specifies how many elements to skip before returning results.",
+          "required" : false,
+          "type" : "integer",
+          "minimum" : 0,
+          "format" : "int32",
+          "x-exportParamName" : "Offset",
+          "x-optionalDataType" : "Int32"
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Specifies the maximum amount of elements to return.  Returns 25 items by default.",
+          "required" : false,
+          "type" : "integer",
+          "maximum" : 100,
+          "minimum" : 1,
+          "format" : "int32",
+          "x-exportParamName" : "Limit",
+          "x-optionalDataType" : "Int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ApartmentRoom"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "all" ],
+        "summary" : "Add a room for an apartments",
+        "description" : "<b>By</b>\n",
+        "operationId" : "createRoom",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "in" : "body",
+          "name" : "apartment",
+          "description" : "Apartment object that needs to be added to the store",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Apartment"
+          },
+          "x-exportParamName" : "Apartment"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/Apartment"
+            }
+          }
+        }
+      }
+    },
+    "/apartments/{apartment_id}/rooms/{room_id}" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get an existing room of an apartment",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getRoom",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "room_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "RoomId"
+        }, {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Apartment"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "all" ],
+        "summary" : "Update an existing room of an apartment",
+        "operationId" : "updateRoom",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "room_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "RoomId"
+        }, {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "in" : "body",
+          "name" : "Apartment",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Apartment"
+          },
+          "x-exportParamName" : "Apartment"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "all" ],
+        "summary" : "Deletes an existing room of an apartment",
+        "operationId" : "deleteRoom",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "room_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "RoomId"
+        }, {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/apartments/{apartment_id}/rooms/{room_id}/items" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get items of a room of an apartment",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getApartmentRoomItems",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "name" : "room_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "RoomId"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/RoomItem"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "all" ],
+        "summary" : "Add an item to a room of an apartment",
+        "operationId" : "addApartmentRoomItem",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "name" : "room_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "RoomId"
+        }, {
+          "in" : "body",
+          "name" : "RoomItem",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/RoomItem"
+          },
+          "x-exportParamName" : "RoomItem"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/apartments/{apartment_id}/rooms/{room_id}/clean-items/{cleanItem_id}" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get an existing clean item of a room of an apartment",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getApartmentRoomCleanItem",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "name" : "room_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "RoomId"
+        }, {
+          "name" : "cleanItem_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "CleanItemId"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CleanItem"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "all" ],
+        "summary" : "Deletes a clean item of room of an apartment",
+        "operationId" : "deleteApartmentRoomCleanItem",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "name" : "room_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "RoomId"
+        }, {
+          "name" : "cleanItem_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "CleanItemId"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/apartments/{apartment_id}/rooms/{room_id}/fill-items" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get fill items of a room of an apartment",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getApartmentRoomFillItems",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "name" : "room_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "RoomId"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CleanItem"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "all" ],
+        "summary" : "Add a fill item to a room of an apartment",
+        "operationId" : "addApartmentRoomFillItems",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "name" : "room_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "RoomId"
+        }, {
+          "in" : "body",
+          "name" : "Apartment",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/FillItem"
+          },
+          "x-exportParamName" : "Apartment"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/apartments/{apartment_id}/rooms/{room_id}/fill-items/{fillItem_id}" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get an existing fill item of a room of an apartment",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getApartmentRoomFillItem",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "name" : "room_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "RoomId"
+        }, {
+          "name" : "fillItem_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "FillItemId"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/FillItem"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "all" ],
+        "summary" : "Deletes a fill item of room of an apartment",
+        "operationId" : "deleteApartmentRoomFillItem",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "apartment_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "ApartmentId"
+        }, {
+          "name" : "room_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "RoomId"
+        }, {
+          "name" : "fillItem_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "FillItemId"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/bookings" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get a list of bookings",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getBookings",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "q",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-exportParamName" : "Q",
+          "x-optionalDataType" : "String"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-exportParamName" : "Sort",
+          "x-optionalDataType" : "String"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Specifies how many elements to skip before returning results.",
+          "required" : false,
+          "type" : "integer",
+          "minimum" : 0,
+          "format" : "int32",
+          "x-exportParamName" : "Offset",
+          "x-optionalDataType" : "Int32"
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Specifies the maximum amount of elements to return.  Returns 25 items by default.",
+          "required" : false,
+          "type" : "integer",
+          "maximum" : 100,
+          "minimum" : 1,
+          "format" : "int32",
+          "x-exportParamName" : "Limit",
+          "x-optionalDataType" : "Int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Booking"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "all" ],
+        "summary" : "Add a new booking",
+        "description" : "<b>By</b>\n",
+        "operationId" : "createBooking",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "booking",
+          "description" : "Booking object that needs to be added to the store",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Booking"
+          },
+          "x-exportParamName" : "Booking"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/Booking"
+            }
+          }
+        }
+      }
+    },
+    "/bookings/{booking_id}" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get an existing booking",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getBooking",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "booking_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "BookingId"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Booking"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "all" ],
+        "summary" : "Update an existing booking",
+        "operationId" : "updateBooking",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "booking_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "BookingId"
+        }, {
+          "in" : "body",
+          "name" : "Booking",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Booking"
+          },
+          "x-exportParamName" : "Booking"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "all" ],
+        "summary" : "Deletes a booking",
+        "operationId" : "deleteBooking",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "booking_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "BookingId"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/CleanItem" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get a list of items",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getCleanItems",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "q",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-exportParamName" : "Q",
+          "x-optionalDataType" : "String"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-exportParamName" : "Sort",
+          "x-optionalDataType" : "String"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Specifies how many elements to skip before returning results.",
+          "required" : false,
+          "type" : "integer",
+          "minimum" : 0,
+          "format" : "int32",
+          "x-exportParamName" : "Offset",
+          "x-optionalDataType" : "Int32"
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Specifies the maximum amount of elements to return.  Returns 25 items by default.",
+          "required" : false,
+          "type" : "integer",
+          "maximum" : 100,
+          "minimum" : 1,
+          "format" : "int32",
+          "x-exportParamName" : "Limit",
+          "x-optionalDataType" : "Int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CleanItem"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "all" ],
+        "summary" : "Add a new clean item",
+        "description" : "<b>By</b>\n",
+        "operationId" : "createCleanItem",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cleanItem",
+          "description" : "CleanItem object that needs to be added to the store",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CleanItem"
+          },
+          "x-exportParamName" : "CleanItem"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/CleanItem"
+            }
+          }
+        }
+      }
+    },
+    "/CleanItem/{cleanItem_id}" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get an existing clean item",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getCleanItem",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "cleanItem_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "CleanItemId"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CleanItem"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "all" ],
+        "summary" : "Update an existing clean item",
+        "operationId" : "updateCleanItem",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "cleanItem_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "CleanItemId"
+        }, {
+          "in" : "body",
+          "name" : "CleanItem",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CleanItem"
+          },
+          "x-exportParamName" : "CleanItem"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "all" ],
+        "summary" : "Deletes a clean item",
+        "operationId" : "deleteCleanItem",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "cleanItem_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "CleanItemId"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/FillItem" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get a list of items",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getFillItems",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "q",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-exportParamName" : "Q",
+          "x-optionalDataType" : "String"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "x-exportParamName" : "Sort",
+          "x-optionalDataType" : "String"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Specifies how many elements to skip before returning results.",
+          "required" : false,
+          "type" : "integer",
+          "minimum" : 0,
+          "format" : "int32",
+          "x-exportParamName" : "Offset",
+          "x-optionalDataType" : "Int32"
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Specifies the maximum amount of elements to return.  Returns 25 items by default.",
+          "required" : false,
+          "type" : "integer",
+          "maximum" : 100,
+          "minimum" : 1,
+          "format" : "int32",
+          "x-exportParamName" : "Limit",
+          "x-optionalDataType" : "Int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/FillItem"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "all" ],
+        "summary" : "Add a new clean item",
+        "description" : "<b>By</b>\n",
+        "operationId" : "createFillItem",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cleanItem",
+          "description" : "CleanItem object that needs to be added to the store",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/FillItem"
+          },
+          "x-exportParamName" : "CleanItem"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/FillItem"
+            }
+          }
+        }
+      }
+    },
+    "/FillItem/{fillItem_id}" : {
+      "get" : {
+        "tags" : [ "all" ],
+        "summary" : "Get an existing clean item",
+        "description" : "<b>By</b>\n",
+        "operationId" : "getFillItem",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "fillItem_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "FillItemId"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/FillItem"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "all" ],
+        "summary" : "Update an existing clean item",
+        "operationId" : "updateFillItem",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "fillItem_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "FillItemId"
+        }, {
+          "in" : "body",
+          "name" : "CleanItem",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/FillItem"
+          },
+          "x-exportParamName" : "CleanItem"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "all" ],
+        "summary" : "Deletes a clean item",
+        "operationId" : "deleteFillItem",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "fillItem_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid",
+          "x-exportParamName" : "FillItemId"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Apartment" : {
+      "type" : "object",
+      "required" : [ "door_code_format", "name" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "Le Marilys"
+        },
+        "door_code_format" : {
+          "type" : "string",
+          "example" : "13456",
+          "pattern" : "^\\d{5}$"
+        }
+      },
+      "description" : "<b>Apartment</b>\n",
+      "example" : {
+        "door_code_format" : "13456",
+        "name" : "Le Marilys",
+        "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+      }
+    },
+    "ApartmentRoom" : {
+      "type" : "object",
+      "required" : [ "apartment", "name", "room" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "apartment" : {
+          "$ref" : "#/definitions/Apartment"
+        },
+        "room" : {
+          "$ref" : "#/definitions/Room"
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "Bedroom 1"
+        }
+      },
+      "description" : "<b>ApartmentRoom</b>\n",
+      "example" : {
+        "name" : "Bedroom 1",
+        "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+        "apartment" : {
+          "door_code_format" : "13456",
+          "name" : "Le Marilys",
+          "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "room" : {
+          "name" : "Cuisine",
+          "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        }
+      }
+    },
+    "ApartmentRoomRoomItem" : {
+      "type" : "object",
+      "required" : [ "apartment-room", "frequency" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "apartment-room" : {
+          "$ref" : "#/definitions/ApartmentRoom"
+        },
+        "item" : {
+          "$ref" : "#/definitions/RoomItem"
+        },
+        "frequency" : {
+          "type" : "integer",
+          "format" : "int32",
+          "minimum" : 1
+        }
+      },
+      "description" : "<b>ApartmentRoomRoomItem</b>\n"
+    },
+    "Booking" : {
+      "type" : "object",
+      "required" : [ "chalet", "checkfront_id", "end_date", "start_date" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "checkfront_id" : {
+          "type" : "string",
+          "example" : "ZCGZ-291118"
+        },
+        "guest" : {
+          "$ref" : "#/definitions/Guest"
+        },
+        "chalet" : {
+          "$ref" : "#/definitions/Apartment"
+        },
+        "start_date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "end_date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "language" : {
+          "type" : "string",
+          "pattern" : "^\\s{2}-\\s{2}$"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "float",
+          "minimum" : 0
+        },
+        "taxes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Tax"
+          }
+        }
+      },
+      "description" : "<b>Booking</b>\n",
+      "example" : {
+        "end_date" : "2000-01-23T04:56:07.000+00:00",
+        "amount" : 0.08008282,
+        "checkfront_id" : "ZCGZ-291118",
+        "chalet" : {
+          "door_code_format" : "13456",
+          "name" : "Le Marilys",
+          "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "taxes" : [ {
+          "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        }, {
+          "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        } ],
+        "guest" : "",
+        "language" : "language",
+        "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+        "start_date" : "2000-01-23T04:56:07.000+00:00"
+      }
+    },
+    "Cleaning" : {
+      "type" : "object",
+      "required" : [ "apartment", "booking" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "apartment" : {
+          "$ref" : "#/definitions/Apartment"
+        },
+        "booking" : {
+          "$ref" : "#/definitions/Booking"
+        },
+        "clean-items" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CleanItem"
+          }
+        },
+        "fill-items" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/FillItem"
+          }
+        }
+      },
+      "description" : "<b>Cleaning</b>\n"
+    },
+    "Employee" : {
+      "properties" : {
+        "password" : {
+          "type" : "string",
+          "example" : "x239m5YaWw9z"
+        },
+        "role" : {
+          "$ref" : "#/definitions/Role"
+        }
+      },
+      "required" : [ "password", "role" ],
+      "allOf" : [ {
+        "$ref" : "#/definitions/Persona"
+      }, { } ],
+      "description" : "<b>Employee</b>\n"
+    },
+    "RoomItem" : {
+      "type" : "object",
+      "discriminator" : "type",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "type" : {
+          "type" : "string"
+        }
+      },
+      "description" : "<b>RoomItem</b>\n",
+      "example" : {
+        "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+        "type" : "type"
+      }
+    },
+    "CleanItem" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/RoomItem"
+      }, { } ],
+      "description" : "<b>CleanItem</b>\n"
+    },
+    "FillItem" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/RoomItem"
+      }, { } ],
+      "description" : "<b>FillItem</b>\n"
+    },
+    "Guest" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/Persona"
+      }, { } ],
+      "description" : "<b>Guest</b>\n"
+    },
+    "Language" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "lang_code" : {
+          "type" : "string",
+          "example" : "fr"
+        },
+        "country_code" : {
+          "type" : "string",
+          "example" : "ca"
+        }
+      },
+      "description" : "<b>Language</b>\n"
+    },
+    "Persona" : {
+      "type" : "object",
+      "required" : [ "email", "firstname", "lastname" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "checkfront_id" : {
+          "type" : "string",
+          "example" : "ZCGZ-291118"
+        },
+        "email" : {
+          "type" : "string",
+          "format" : "email",
+          "example" : "patrick@domainedesbec.com"
+        },
+        "firstname" : {
+          "type" : "string",
+          "example" : "Patrick"
+        },
+        "lastname" : {
+          "type" : "string",
+          "example" : "Beaudoin"
+        },
+        "country" : {
+          "type" : "string",
+          "example" : "Canada"
+        },
+        "state" : {
+          "type" : "string",
+          "example" : "Quebec"
+        },
+        "address" : {
+          "type" : "string",
+          "example" : "123 Street"
+        },
+        "city" : {
+          "type" : "string",
+          "example" : "Montreal"
+        },
+        "postal_zip" : {
+          "type" : "string",
+          "example" : "A1A 1A1"
+        },
+        "phone" : {
+          "type" : "string",
+          "example" : "+1 555 555-5555"
+        },
+        "language" : {
+          "$ref" : "#/definitions/Language"
+        }
+      },
+      "description" : "<b>Guest</b>\n"
+    },
+    "Role" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "Cleaner"
+        },
+        "weight" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : 1,
+          "minimum" : 1
+        }
+      },
+      "description" : "<b>Role</b>\n"
+    },
+    "Room" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "Cuisine"
+        }
+      },
+      "description" : "<b>Room</b>\n",
+      "example" : {
+        "name" : "Cuisine",
+        "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+      }
+    },
+    "Tax" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        }
+      },
+      "description" : "<b>Tax</b>\n",
+      "example" : {
+        "id" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+      }
+    }
+  },
+  "parameters" : {
+    "apartment_id" : {
+      "name" : "apartment_id",
+      "in" : "path",
+      "required" : true,
+      "type" : "string",
+      "format" : "uuid",
+      "x-exportParamName" : "ApartmentId"
+    },
+    "cleanItem_id" : {
+      "name" : "cleanItem_id",
+      "in" : "path",
+      "required" : true,
+      "type" : "string",
+      "format" : "uuid",
+      "x-exportParamName" : "CleanItemId"
+    },
+    "fillItem_id" : {
+      "name" : "fillItem_id",
+      "in" : "path",
+      "required" : true,
+      "type" : "string",
+      "format" : "uuid",
+      "x-exportParamName" : "FillItemId"
+    },
+    "room_id" : {
+      "name" : "room_id",
+      "in" : "path",
+      "required" : true,
+      "type" : "string",
+      "format" : "uuid",
+      "x-exportParamName" : "RoomId"
+    },
+    "query" : {
+      "name" : "q",
+      "in" : "query",
+      "required" : false,
+      "type" : "string",
+      "x-exportParamName" : "Q",
+      "x-optionalDataType" : "String"
+    },
+    "sort" : {
+      "name" : "sort",
+      "in" : "query",
+      "required" : false,
+      "type" : "string",
+      "x-exportParamName" : "Sort",
+      "x-optionalDataType" : "String"
+    },
+    "offset" : {
+      "name" : "offset",
+      "in" : "query",
+      "description" : "Specifies how many elements to skip before returning results.",
+      "required" : false,
+      "type" : "integer",
+      "minimum" : 0,
+      "format" : "int32",
+      "x-exportParamName" : "Offset",
+      "x-optionalDataType" : "Int32"
+    },
+    "limit" : {
+      "name" : "limit",
+      "in" : "query",
+      "description" : "Specifies the maximum amount of elements to return.  Returns 25 items by default.",
+      "required" : false,
+      "type" : "integer",
+      "maximum" : 100,
+      "minimum" : 1,
+      "format" : "int32",
+      "x-exportParamName" : "Limit",
+      "x-optionalDataType" : "Int32"
+    }
+  }
+}
